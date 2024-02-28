@@ -1,0 +1,39 @@
+Evaluating C++ intrinsic RNG algorithm at N = 100 seeds...
+Performing two-level frequency test with K=10...
+Chi-squared value for group 0:	10		PASS
+Chi-squared value for group 1:	6		PASS
+Chi-squared value for group 2:	10		PASS
+Chi-squared value for group 3:	8		PASS
+Chi-squared value for group 4:	10		PASS
+Chi-squared value for group 5:	12		PASS
+Chi-squared value for group 6:	6		PASS
+Chi-squared value for group 7:	10		PASS
+Chi-squared value for group 8:	6		PASS
+Chi-squared value for group 9:	16		PASS
+Second level chi-squared = 18		->	This RNG fails the two-level frequency test.
+Evaluating C++ intrinsic RNG algorithm at N = 1000 seeds...
+Performing two-level frequency test with K=10...
+Chi-squared value for group 0:	17		FAIL
+Chi-squared value for group 1:	15		PASS
+Chi-squared value for group 2:	3.4		PASS
+Chi-squared value for group 3:	3.8		PASS
+Chi-squared value for group 4:	8		PASS
+Chi-squared value for group 5:	6.6		PASS
+Chi-squared value for group 6:	9.8		PASS
+Chi-squared value for group 7:	10.6		PASS
+Chi-squared value for group 8:	10.4		PASS
+Chi-squared value for group 9:	11		PASS
+Second level chi-squared = 6		->	This RNG passes the two-level frequency test.
+Evaluating C++ intrinsic RNG algorithm at N = 10000 seeds...
+Performing two-level frequency test with K=10...
+Chi-squared value for group 0:	8.68		PASS
+Chi-squared value for group 1:	7.96		PASS
+Chi-squared value for group 2:	12.96		PASS
+Chi-squared value for group 3:	5.8		PASS
+Chi-squared value for group 4:	13.36		PASS
+Chi-squared value for group 5:	8.62		PASS
+Chi-squared value for group 6:	7.9		PASS
+Chi-squared value for group 7:	7.16		PASS
+Chi-squared value for group 8:	13.28		PASS
+Chi-squared value for group 9:	6.58		PASS
+Second level chi-squared = 16		->	This RNG passes the two-level frequency test.

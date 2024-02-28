@@ -1,0 +1,42 @@
+Evaluating C++ intrinsic RNG algorithm at N = 100 seeds...
+Binning random numbers...
+BIN:	1	2	3	4	5	6	7	8	9	10
+COUNT:	7	7	5	13	10	11	6	20	11	10
+Performing frequency test...
+Chi-squared = 17		->	This RNG fails the frequency test.
+Performing moments test (threshold <0.01)...
+Moment:		Expected:	Computed:	Difference:	Result:
+ k=1:		0.5000		0.5576		0.0576		FAIL
+ k=2:		0.3333		0.3872		0.0538		FAIL
+ k=3:		0.2500		0.2939		0.0439		FAIL
+ k=4:		0.2000		0.2347		0.0347		FAIL
+ k=5:		0.1667		0.1938		0.0271		FAIL
+This RNG fails the moments test.
+Evaluating C++ intrinsic RNG algorithm at N = 1000 seeds...
+Binning random numbers...
+BIN:	1	2	3	4	5	6	7	8	9	10
+COUNT:	91	105	99	125	92	94	97	101	95	101
+Performing frequency test...
+Chi-squared = 8.6800		->	This RNG passes the frequency test.
+Performing moments test (threshold <0.0100)...
+Moment:		Expected:	Computed:	Difference:	Result:
+ k=1:		0.5000		0.4988		0.0012		PASS
+ k=2:		0.3333		0.3316		0.0017		PASS
+ k=3:		0.2500		0.2491		0.0009		PASS
+ k=4:		0.2000		0.2000		0.0000		PASS
+ k=5:		0.1667		0.1674		0.0007		PASS
+This RNG passes the moments test.
+Evaluating C++ intrinsic RNG algorithm at N = 10000 seeds...
+Binning random numbers...
+BIN:	1		2		3		4		5		6		7		8		9		10
+COUNT:	999		994		948		1013	964		984		971		1028	1076	1023
+Performing frequency test...
+Chi-squared = 12.3920		->	This RNG passes the frequency test.
+Performing moments test (threshold <0.0100)...
+Moment:		Expected:	Computed:	Difference:	Result:
+ k=1:		0.5000		0.5057		0.0057		PASS
+ k=2:		0.3333		0.3401		0.0068		PASS
+ k=3:		0.2500		0.2568		0.0068		PASS
+ k=4:		0.2000		0.2064		0.0064		PASS
+ k=5:		0.1667		0.1726		0.0059		PASS
+This RNG passes the moments test.
