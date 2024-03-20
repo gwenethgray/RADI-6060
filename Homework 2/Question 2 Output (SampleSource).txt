@@ -1,0 +1,7 @@
+True mean radial position of 100 keV source particles in homogeneous water-equivalent sphere of radius 10 cm: 7.5 ± 1.93649 cm (variance = 3.75 cm)
+Monte Carlo estimate of mean radial position for N = 100 histories: 7.20852 ± 2.13901 cm (variance = 4.57537 cm)
+Monte Carlo estimate of median radial position for N = 100 histories: 7.79297 cm
+Monte Carlo estimate of mean radial position for N = 1000 histories: 7.49734 ± 1.89853 cm (variance = 3.60441 cm)
+Monte Carlo estimate of median radial position for N = 1000 histories: 7.85857 cm
+Monte Carlo estimate of mean radial position for N = 10000 histories: 7.48362 ± 1.92915 cm (variance = 3.7216 cm)
+Monte Carlo estimate of median radial position for N = 10000 histories: 7.90381 cm

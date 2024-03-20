@@ -1,0 +1,6 @@
+True mean free path of 100 keV x-rays in semi-infinite water-equivalent parallelepiped: 5.85823 ± 5.85823 cm (variance = 34.3189 cm)
+Monte Carlo estimate of mean free path for N = 100 histories: 6.93239 ± 7.44455 cm (variance = 55.4214 cm)
+Monte Carlo estimate of mean free path for N = 1000 histories: 5.79705 ± 5.51243 cm (variance = 30.3869 cm)
+Monte Carlo estimate of mean free path for N = 10000 histories: 5.9018 ± 5.93691 cm (variance = 35.2469 cm)
+Assuming the slab is a 10 cm thick pure absorber, the uncollided leakage flux is: 0.181409
+Monte Carlo estimate of mean uncollided leakage flux for N = 10000 histories: 0.1808 ± 0.00384852
