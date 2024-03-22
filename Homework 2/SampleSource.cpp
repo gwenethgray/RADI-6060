@@ -20,12 +20,18 @@ int main() {
     double radius = 10.0; // cm
     double trueMeanPosn = 3.0*radius/4.0;
     double trueVariance = 3.0*pow(radius, 2)/80.0;
-    std::cout << "True mean radial position of 100 keV source particles in homogeneous water-equivalent sphere of radius 10 cm: "
-              << trueMeanPosn << " ± " << pow(trueVariance, 0.5) << " cm (variance = " << trueVariance << " cm)" << std::endl;
+    double trueMedianPosn = radius/pow(2.0, 1.0/3.0);
+    double eta = trueMedianPosn/radius;
+    double medVarCoeff = (3.0/5.0) - (3.0*eta/2.0) + pow(eta, 2);
+    double trueMedianVariance = medVarCoeff*pow(radius, 2);
+    std::cout << "Simulating radial positions of 100 keV source particles generated in a homogeneous water-equivalent sphere of radius 10 cm..." << std::endl
+              << "True mean radial position: " << trueMeanPosn << " ± " << pow(trueVariance, 0.5) << " cm (variance = " << trueVariance << " cm^2)" << std::endl
+              << "True median radial position: " << trueMedianPosn << " ± " << pow(trueMedianVariance, 0.5) << " cm (variance = " << trueMedianVariance << " cm^2)" << std::endl;
 
     std::vector<double> meanPosns = {};
     std::vector<double> unbiasedVariances = {};
     std::vector<double> medianPosns = {};
+    std::vector<double> unbiasedMedianVariances = {};
     std::vector<int> histories = {100, 1000, 10000};
 
     // run simulations
@@ -39,8 +45,9 @@ int main() {
         }
 
         // compute statistics
-        auto posnSum = std::accumulate(posns.begin(), posns.end(), 0.0);
+        double posnSum = std::accumulate(posns.begin(), posns.end(), 0.0);
         double meanPosn = posnSum/(double)N;
+        double meanPctDiff = 100*(trueMeanPosn - meanPosn)/meanPosn;
         std::vector<double> residuals = {};
         for (double posn : posns) {
             double residual = pow(posn - meanPosn, 2);
@@ -52,11 +59,21 @@ int main() {
 
         std::sort(posns.begin(), posns.end());
         double medianPosn = posns[N/2];
+        double medianPctDiff = 100*(trueMedianPosn - medianPosn)/medianPosn;
         medianPosns.push_back(medianPosn);
+        residuals = {};
+        for (double posn : posns) {
+            double residual = pow(posn - medianPosn, 2);
+            residuals.push_back(residual);
+        }
+        double medianVariance = std::accumulate(residuals.begin(), residuals.end(), 0.0)/(double)N;
+        unbiasedMedianVariances.push_back(medianVariance);
 
-        std::cout << "Monte Carlo estimate of mean radial position for N = " << N << " histories: "
-                  << meanPosn << " ± " << pow(variance, 0.5) << " cm (variance = " << variance << " cm)" << std::endl;
-        std::cout << "Monte Carlo estimate of median radial position for N = " << N << " histories: " << medianPosn << " cm" << std::endl;
+        std::cout << "Monte Carlo estimates for N = " << N << " histories:" << std::endl;
+        std::cout << "\tMean radial position: " << meanPosn << " ± " << pow(variance, 0.5) << " cm (variance = " << variance << " cm^2)" << std::endl;
+        std::cout << "\t\t" << meanPctDiff << "\% error from true mean" << std::endl;
+        std::cout << "\tMedian radial position: " << medianPosn << " ± " << pow(medianVariance, 0.5) << " cm (variance = " << medianVariance << " cm^2)" << std::endl;
+        std::cout << "\t\t" << medianPctDiff << "\% error from true median" << std::endl;
     }
 
     return 0;
